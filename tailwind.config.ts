@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/(pages)/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/modules/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/common/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
@@ -19,6 +19,7 @@ const config: Config = {
         secondary400: "#A1A1AA",
         sky: "#4B6BFB",
         cloud: "#E8E8EA",
+        gray300: "#97989F",
       },
     },
   },
