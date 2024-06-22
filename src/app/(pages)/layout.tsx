@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Work_Sans } from "next/font/google";
 import "./globals.css";
+import { SessionProviders } from "@/common/components/layouts/SessionProvider";
 
 const work_sans = Work_Sans({ subsets: ["latin"] });
 
@@ -16,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={work_sans.className}>{children}</body>
+      <body className={work_sans.className}>
+        <SessionProviders>{children}</SessionProviders>
+      </body>
     </html>
   );
 }
