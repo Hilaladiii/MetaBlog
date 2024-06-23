@@ -1,73 +1,77 @@
-import { prisma } from "../lib/prisma";
-import { UserType, userSchema } from "@/common/types/user";
+import {
+  getFirestore,
+  getDocs,
+  collection,
+  getDoc,
+  doc,
+  query,
+  where,
+  and,
+  addDoc,
+  updateDoc,
+} from "firebase/firestore";
+import app from "../lib/firebase";
+import { UserType } from "../types/user";
 import bcryptjs from "bcryptjs";
+import { FirebaseError } from "firebase/app";
 
-export async function SignUp(userData: UserType) {
-  const validate = userSchema.safeParse(userData);
-  if (validate.success) {
+const firestore = getFirestore(app);
+
+export async function signUp(data: UserType) {
+  const q = query(
+    collection(firestore, "users"),
+    and(
+      where("email", "==", data.email),
+      where("username", "==", data.username),
+    ),
+  );
+  const snapshot = await getDocs(q);
+  const user = snapshot.docs.map((doc) => ({
+    id: doc.id,
+    data: doc.data(),
+  }));
+
+  if (user.length > 0) {
+    return {
+      status: 500,
+      message: "Email or Username Already exist!",
+    };
+  } else {
     try {
-      const email = await prisma.user.findUnique({
-        where: {
-          email: userData.email,
-        },
-      });
-
-      if (email) {
-        return {
-          status: 400,
-          message: "User with this email already exists ",
-        };
-      }
-      userData.password = await bcryptjs.hash(userData.password, 10);
-      await prisma.user.create({
-        data: userData,
-      });
+      data.password = await bcryptjs.hash(data.password, 10);
+      await addDoc(collection(firestore, "users"), data);
       return {
         status: 201,
-        message: "Success register your account",
+        message: "Sign-up success",
       };
     } catch (error) {
-      console.log(error);
       return {
         status: 500,
-        message: (error as TypeError).message,
+        message: (error as FirebaseError).message,
       };
     }
-  } else {
-    return {
-      status: 400,
-      message: "Data is invalid",
-    };
   }
 }
 
-export async function SignIn(userData: { email: string; password: string }) {
-  try {
-    const user = await prisma.user.findUnique({
-      where: {
-        email: userData.email,
-      },
-    });
-    console.log(user);
-    if (user) {
-      const isPasswordValid = await bcryptjs.compare(
-        userData.password,
-        user.password,
-      );
-      console.log(isPasswordValid);
-      if (isPasswordValid) {
-        return {
-          name: user.username,
-          email: user.email,
-        };
-      } else {
-        return null;
-      }
+export async function signIn(data: { email: string; password: string }) {
+  const q = await query(
+    collection(firestore, "users"),
+    where("email", "==", data.email),
+  );
+  const snapshot = await getDocs(q);
+  const user = snapshot.docs.map((doc) => ({
+    id: doc.id,
+    data: doc.data(),
+  }));
+  if (user) {
+    const password = user[0].data.password;
+    const isPasswordValid = await bcryptjs.compare(data.password, password);
+    if (isPasswordValid) {
+      return user[0].data;
     } else {
       return null;
     }
-  } catch (error) {
-    console.log(error);
+  } else {
     return null;
   }
 }
