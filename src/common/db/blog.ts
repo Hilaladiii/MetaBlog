@@ -65,3 +65,24 @@ export async function createPost(data: BlogType) {
     };
   }
 }
+
+export async function getPosts() {
+  try {
+    const q = await query(collection(firestore, "posts"));
+    const snapshot = await getDocs(q);
+    const blog = await snapshot.docs.map((doc) => ({
+      id: doc.id,
+      data: doc.data(),
+    }));
+    return {
+      status: 200,
+      message: "Success get all posts",
+      data: blog,
+    };
+  } catch (error) {
+    return {
+      status: 500,
+      message: (error as FirebaseError).message,
+    };
+  }
+}
