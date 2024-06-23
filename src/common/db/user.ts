@@ -67,7 +67,12 @@ export async function signIn(data: { email: string; password: string }) {
     const password = user[0].data.password;
     const isPasswordValid = await bcryptjs.compare(data.password, password);
     if (isPasswordValid) {
-      return user[0].data;
+      return {
+        username: user[0].data.username,
+        email: user[0].data.email,
+        role: user[0].data.role,
+        image: user[0].data.image,
+      };
     } else {
       return null;
     }
