@@ -86,3 +86,20 @@ export async function getPosts() {
     };
   }
 }
+
+export async function getPostById(id: string) {
+  try {
+    const snapshot = await getDoc(doc(firestore, "posts", id));
+    const data = snapshot.data();
+    return {
+      status: 200,
+      message: "success get product",
+      data: data,
+    };
+  } catch (error) {
+    return {
+      status: 500,
+      message: (error as FirebaseError).message,
+    };
+  }
+}
