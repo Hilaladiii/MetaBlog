@@ -66,9 +66,9 @@ export async function createPost(data: BlogType) {
   }
 }
 
-export async function getPosts() {
+export async function getData(collectionName: string) {
   try {
-    const q = await query(collection(firestore, "posts"));
+    const q = await query(collection(firestore, collectionName));
     const snapshot = await getDocs(q);
     const blog = await snapshot.docs.map((doc) => ({
       id: doc.id,
@@ -76,7 +76,7 @@ export async function getPosts() {
     }));
     return {
       status: 200,
-      message: "Success get all posts",
+      message: `Success get all ${collectionName}`,
       data: blog,
     };
   } catch (error) {
@@ -87,13 +87,13 @@ export async function getPosts() {
   }
 }
 
-export async function getPostById(id: string) {
+export async function getDataById(collectionName: string, id: string) {
   try {
-    const snapshot = await getDoc(doc(firestore, "posts", id));
+    const snapshot = await getDoc(doc(firestore, collectionName, id));
     const data = snapshot.data();
     return {
       status: 200,
-      message: "success get product",
+      message: `success get ${collectionName} by id`,
       data: data,
     };
   } catch (error) {
