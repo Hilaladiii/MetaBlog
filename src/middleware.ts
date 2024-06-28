@@ -6,9 +6,9 @@ export async function mainMiddleware(req: NextRequest) {
 }
 
 export default withAuth(mainMiddleware, [
-  "/blog",
   "/",
-  "/blog/:id",
+  "/blog",
+  /^\/blog\/[^/]+$/,
   "/writer/post",
   "/writer/my-post",
 ]);
