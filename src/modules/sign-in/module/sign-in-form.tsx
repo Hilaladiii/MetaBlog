@@ -4,9 +4,11 @@ import InputForm from "@/common/components/fragments/InputForm";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useMessage } from "@/common/hooks/useMessage";
+import { useEffect } from "react";
+import Link from "next/link";
 
 const schema = z.object({
   email: z.string().email("Invalid email address"),
@@ -24,25 +26,35 @@ export default function SignInForm() {
   } = useForm<SignInType>({ resolver: zodResolver(schema) });
 
   const { message, updateMessage } = useMessage();
+  const { data: session, status } = useSession();
 
   const onSubmit = async (data: SignInType) => {
     const { email, password } = data;
     try {
       const res = await signIn("credentials", {
+        redirect: false,
         email,
         password,
-        redirect: false,
       });
 
       if (res?.status === 401) {
         updateMessage("Email or password incorrect");
       } else if (res?.ok) {
-        router.push("/");
       }
     } catch (error) {
       updateMessage("An error occurred during sign in");
     }
   };
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      if (session?.user?.role === "writer") {
+        router.push("/writer/post");
+      } else if (session?.user?.role === "reader") {
+        router.push("/");
+      }
+    }
+  }, [session, status, router]);
 
   return (
     <div>
@@ -77,6 +89,15 @@ export default function SignInForm() {
           {isSubmitting ? "Loading..." : "Sign In"}
         </Button>
       </form>
+      <p className="mt-5 text-center text-charcoal">
+        Dont have an account?{" "}
+        <Link
+          className="text-black underline duration-300 hover:font-medium"
+          href={"/auth/sign-up"}
+        >
+          Sign-up
+        </Link>
+      </p>
     </div>
   );
 }
