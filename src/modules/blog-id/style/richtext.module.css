@@ -1,0 +1,12 @@
+.rich_text p {
+  @apply text-justify text-base text-charcoal;
+  font-family: var(--font-source);
+}
+
+.rich_text h2 {
+  @apply mb-4 text-xl font-semibold;
+}
+
+.rich_text a {
+  @apply text-sky underline;
+}
