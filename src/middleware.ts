@@ -5,4 +5,10 @@ export async function mainMiddleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-export default withAuth(mainMiddleware, ["/blog", "/"]);
+export default withAuth(mainMiddleware, [
+  "/blog",
+  "/",
+  "/blog/:id",
+  "/writer/post",
+  "/writer/my-post",
+]);
