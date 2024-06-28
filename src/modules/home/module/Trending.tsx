@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function TrendingBlog() {
-  const data = await getTrendingPost();
+  const data = await getTrendingPost(4);
   const trendingBlog = data.data as { id: string; data: BlogType }[];
   return (
     <div className="mt-32 flex max-w-[68em] flex-col">

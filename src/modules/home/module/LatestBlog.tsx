@@ -1,21 +1,27 @@
-import Button from "@/common/components/elements/Button";
 import CardBlog from "@/common/components/fragments/CardBlog";
+import { BlogType } from "@/common/types/blog";
+import { getPosts } from "@/services/blog";
 
-export default function LatestBlog() {
+export default async function LatestBlog() {
+  const data = await getPosts();
+  const blogData = data.data as { id: string; data: BlogType }[];
   return (
-    <div className="mx-auto mb-20 mt-52 flex max-w-[68em] flex-col">
+    <div className="mt-52 flex flex-col">
       <h1 className="mb-8 text-xl font-bold">Latest Post</h1>
       <div className="mx-auto grid grid-cols-3 gap-5">
-        <CardBlog />
-        <CardBlog />
-        <CardBlog />
-        <CardBlog />
-        <CardBlog />
-        <CardBlog />
+        {blogData &&
+          blogData.map((blog, index) => (
+            <CardBlog
+              title={blog.data.title}
+              author={blog.data.author}
+              image={blog.data.image}
+              date={blog.data.createdAt || ""}
+              category={blog.data.category}
+              href={`/blog/${blog.id}`}
+              key={index}
+            />
+          ))}
       </div>
-      <Button variant="black" className="mx-auto mt-10">
-        View All Post
-      </Button>
     </div>
   );
 }
