@@ -8,6 +8,7 @@ import { useMessage } from "@/common/hooks/useMessage";
 import { userSchema } from "@/common/types/user";
 import { UserType } from "@/common/types/user";
 import { signUp } from "@/services/user";
+import Link from "next/link";
 
 export default function SignUpForm() {
   const router = useRouter();
@@ -92,6 +93,15 @@ export default function SignUpForm() {
           {isSubmitting ? "Loading..." : "Sign Up"}
         </Button>
       </form>
+      <p className="mt-5 text-center text-charcoal">
+        Already have an account?{" "}
+        <Link
+          className="text-black underline duration-300 hover:font-medium"
+          href={"/auth/sign-in"}
+        >
+          Sign-in
+        </Link>
+      </p>
     </div>
   );
 }
