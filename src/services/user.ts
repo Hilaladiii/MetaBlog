@@ -17,7 +17,6 @@ export async function signUp(data: UserType) {
 
     return res;
   } catch (error) {
-    console.error("Sign up error:", error);
     throw error;
   }
 }
