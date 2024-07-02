@@ -11,9 +11,10 @@ interface InputFormProps<TInput extends FieldValues> {
   register: UseFormRegister<TInput>;
   error: FieldError | undefined;
   label: string;
-  type: "text" | "number" | "email" | "password";
+  type: "text" | "number" | "email" | "password" | "file";
   placeholder: string;
   size?: "default" | "small" | "large" | "full";
+  variant?: "primary" | "secondary";
 }
 
 export default function InputForm<TInput extends FieldValues>({
@@ -22,6 +23,7 @@ export default function InputForm<TInput extends FieldValues>({
   type,
   size,
   placeholder,
+  variant = "primary",
   register,
   error,
 }: InputFormProps<TInput>) {
@@ -31,6 +33,7 @@ export default function InputForm<TInput extends FieldValues>({
         {label}
       </label>
       <Input
+        variant={variant}
         type={type}
         placeholder={placeholder}
         {...register(name, { required: "This field is required" })}
