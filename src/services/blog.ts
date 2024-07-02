@@ -30,6 +30,9 @@ export async function getMyPosts(user: string) {
       {
         method: "GET",
         credentials: "include",
+        next: {
+          tags: ["my-blog"],
+        },
       },
     );
     const res = await response.json();
