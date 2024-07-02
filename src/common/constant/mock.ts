@@ -1,0 +1,73 @@
+export const mockTestGetPost = [
+  {
+    id: "8AlhUh4Z3uYlKShY6BzY",
+    data: {
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/metablog-ec29b.appspot.com/o/files%2Ftopblog3.png?alt=media&token=8be31d19-bc22-4ab2-ae8b-9bc8316e63af",
+      createdAt: "June 27,2024",
+      author: "jhondoe",
+      content:
+        "<p>Nutrition plays a crucial role in maintaining not only physical health but also mental well-being. The relationship between diet and mental health has garnered significant attention in recent years, with numerous studies highlighting the impact of nutritional choices on cognitive function, mood, and overall mental health. A balanced diet rich in essential nutrients is vital for optimal brain function and can help prevent and manage mental health disorders.</p><p><br></p><p>One of the key nutrients for brain health is omega-3 fatty acids, found in fatty fish, flaxseeds, and walnuts. Omega-3s are essential for the structure and function of brain cells and have been shown to reduce inflammation, which is linked to depression and anxiety. Consuming adequate amounts of omega-3s can improve mood, enhance cognitive performance, and reduce the risk of neurodegenerative diseases such as Alzheimer's.</p><p><br></p><p>Vitamins and minerals also play a significant role in mental health. B vitamins, particularly B6, B9 (folate), and B12, are crucial for the production of neurotransmitters like serotonin and dopamine, which regulate mood and behavior. Deficiencies in these vitamins can lead to symptoms of depression and cognitive decline. Leafy greens, legumes, and animal products are excellent sources of B vitamins. Additionally, vitamin D, obtained from sunlight and certain foods like fatty fish and fortified dairy products, is essential for mood regulation. Low levels of vitamin D are associated with an increased risk of depression and seasonal affective disorder.</p><p><br></p><p>Antioxidants, found in fruits and vegetables, protect the brain from oxidative stress and inflammation. Diets rich in antioxidants, such as the Mediterranean diet, have been linked to lower rates of depression and cognitive decline. Foods like berries, dark chocolate, and green tea are excellent sources of antioxidants that support brain health.</p><p><br></p><p>Furthermore, gut health is increasingly recognized as a critical factor in mental health. The gut-brain axis, the communication network between the gut and the brain, plays a vital role in regulating mood and behavior. Probiotics and prebiotics, found in fermented foods like yogurt, kefir, sauerkraut, and dietary fibers, promote a healthy gut microbiome. A balanced gut microbiome can positively influence brain function and reduce symptoms of anxiety and depression.</p><p>Conversely, diets high in processed foods, refined sugars, and unhealthy fats can negatively impact mental health. Such diets can lead to inflammation, insulin resistance, and impaired brain function, contributing to mood disorders and cognitive decline. Reducing the intake of junk food and adopting a balanced diet rich in whole foods can significantly improve mental well-being.</p><p><br></p><p>In conclusion, nutrition is a powerful tool for maintaining and enhancing mental health. A diet rich in essential nutrients, vitamins, minerals, and antioxidants supports brain function, regulates mood, and reduces the risk of mental health disorders. By making mindful dietary choices, individuals can improve their mental well-being and lead healthier, happier lives.</p>",
+      title: "The Impact of Nutrition on Mental Health",
+      views: 10,
+      category: "health",
+    },
+  },
+  {
+    id: "INXtK7DNpIsEGJySZM26",
+    data: {
+      category: "education",
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/metablog-ec29b.appspot.com/o/files%2Ftopblog.png?alt=media&token=f1090b38-ae5d-4961-b1a1-fbdd650fb8e9",
+      author: "jhondoe",
+      title: "The Importance of Lifelong Learning in Education",
+      createdAt: "June 27,2024",
+      views: 10,
+      content:
+        "<p>In today's fast-paced world, the concept of lifelong learning has gained significant importance. Lifelong learning refers to the continuous pursuit of knowledge and skills throughout an individual's life, beyond formal education. It is essential for personal and professional growth, enabling individuals to adapt to the ever-changing demands of the modern workforce and society. The traditional model of education, which focuses solely on early years and formal institutions, is no longer sufficient to meet the needs of the 21st century.</p><p>One of the primary drivers of lifelong learning is the rapid advancement of technology. Technological innovations are reshaping industries and creating new career opportunities, making it imperative for individuals to continually update their skills. Online learning platforms, such as Coursera, Udemy, and Khan Academy, have democratized access to education, allowing people to learn at their own pace and convenience. These platforms offer a wide range of courses, from programming and data science to creative writing and personal development, catering to diverse learning needs.</p><p>Lifelong learning also plays a crucial role in personal development. It fosters a growth mindset, encouraging individuals to embrace challenges and view failures as learning opportunities. Engaging in lifelong learning activities, such as reading books, attending workshops, and participating in community classes, enhances cognitive abilities and keeps the mind active. Moreover, it promotes social interaction and networking, as learners often collaborate with peers, share knowledge, and build meaningful connections.</p><p>In the workplace, employers increasingly value employees who demonstrate a commitment to continuous learning. Lifelong learners are more adaptable, innovative, and capable of tackling complex problems. Professional development programs and certifications help individuals stay competitive in their careers, opening doors to promotions and new job opportunities. Companies that invest in the learning and development of their workforce benefit from higher employee engagement, productivity, and retention rates.</p><p>Furthermore, lifelong learning contributes to societal progress. An educated population is better equipped to address global challenges, such as climate change, healthcare, and social justice. Governments and educational institutions are recognizing the importance of lifelong learning and are implementing policies and initiatives to support it. For example, many countries offer subsidized or free adult education programs, making learning accessible to all, regardless of age or socioeconomic status.</p><p>In conclusion, lifelong learning is vital in today's dynamic world. It empowers individuals to achieve their full potential, stay relevant in the job market, and contribute to societal well-being. Embracing a culture of continuous learning is essential for personal fulfillment and professional success in an era of constant change.</p>",
+    },
+  },
+  {
+    id: "QGwov10LFeOGxMVnWkFx",
+    data: {
+      views: 3,
+      category: "technology",
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/metablog-ec29b.appspot.com/o/files%2Ftopblog4.jpeg?alt=media&token=5ddd17d1-0963-48ca-bc84-15e56e9451c0",
+      createdAt: "June 27,2024",
+      author: "jhondoe",
+      content:
+        "<p>Traveling is an enriching experience that opens up new horizons, exposes us to different cultures, and creates memories that last a lifetime. However, traveling can also be stressful and overwhelming, especially if you don't plan and prepare adequately. In this blog article, we'll explore tips and tricks for a memorable journey and how to make the most of your travels.</p><p><br></p><p>One of the most rewarding aspects of traveling is immersing yourself in the local culture and customs. This includes trying local cuisine, attending cultural events and festivals, and interacting with locals. Learning a few phrases in the local language can also go a long way in making connections and showing respect.</p><p><br></p><h2>Research Your Destination</h2><p>Before embarking on your journey, take the time to research your destination. This includes understanding the local culture, customs, and laws, as well as identifying top attractions, restaurants, and accommodations. Doing so will help you navigate your destination with confidence and avoid any cultural faux pas.</p><p><br></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In hendrerit gravida rutrum quisque non tellus orci ac auctor. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Aenean euismod elementum nisi quis eleifend quam adipiscing vitae. Viverra adipiscing at in tellus.</p><p><br></p><h2>Plan Your Itinerary</h2><p>While it's essential to leave room for spontaneity and unexpected adventures, having a rough itinerary can help you make the most of your time and budget. Identify the must-see sights and experiences and prioritize them according to your interests and preferences. This will help you avoid overscheduling and ensure that you have time to relax and enjoy your journey.</p><p><br></p><p>Vitae sapien pellentesque habitant morbi tristique. Luctus venenatis lectus magna fringilla. Nec ullamcorper sit amet risus nullam eget felis. Tincidunt arcu non sodales neque sodales ut etiam sit amet.</p>",
+      title:
+        "The Impact of Technology on the Workplace: How Technology is Changing",
+    },
+  },
+  {
+    id: "XoPZOOrHjmkD2qgjLb5M",
+    data: {
+      content:
+        "<p>Artificial Intelligence (AI) has been a buzzword for several years, and its applications continue to grow at an exponential rate. From voice assistants to self-driving cars, AI is becoming an integral part of our daily lives.</p><p><br></p><h2>The Evolution of AI Technology</h2><p>AI technology has evolved significantly over the past decade. Initially, AI was limited to performing specific tasks, such as playing chess or solving mathematical problems. However, advancements in machine learning and neural networks have enabled AI to understand and process natural language, recognize images, and even make decisions.</p><p><br></p><h2>AI in Healthcare</h2><p>One of the most promising applications of AI is in the healthcare industry. AI-powered tools can assist doctors in diagnosing diseases, predicting patient outcomes, and personalizing treatment plans. For example, AI algorithms can analyze medical images to detect early signs of cancer, potentially saving lives through early intervention.</p><p><br></p><h2>AI and Ethics</h2><p>As AI becomes more prevalent, ethical considerations must be addressed. Issues such as data privacy, bias in AI algorithms, and the potential for job displacement need to be carefully managed. Ensuring that AI is developed and used responsibly will be crucial for its continued success and acceptance in society.</p>",
+      author: "penulishandal",
+      createdAt: "June 28,2024",
+      category: "technology",
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/metablog-ec29b.appspot.com/o/files%2Fai.webp?alt=media&token=ffa76689-3e1d-4231-a589-96c410a32cd8",
+      title: "The Future of Artificial Intelligence in Everyday Life",
+      views: 5,
+    },
+  },
+  {
+    id: "yAGtoqHxOmTTyI496xjo",
+    data: {
+      category: "economic",
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/metablog-ec29b.appspot.com/o/files%2Ftopblog2.jpeg?alt=media&token=f9399b14-fc65-4072-bad6-435c1533af6b",
+      views: 4,
+      content:
+        "<p>Financial literacy is a fundamental skill that empowers individuals to make informed decisions about their finances, contributing to both personal and economic stability. Understanding basic financial concepts, such as budgeting, saving, investing, and managing debt, is essential for navigating the complexities of the modern financial landscape. Despite its importance, financial literacy remains a challenge for many, highlighting the need for comprehensive education and resources to improve financial knowledge and skills.</p><p><br></p><p>One of the core aspects of financial literacy is budgeting. A well-planned budget helps individuals track their income and expenses, ensuring that they live within their means. Budgeting allows for better allocation of resources, enabling people to save for future goals, emergencies, and retirement. By creating and adhering to a budget, individuals can avoid unnecessary debt and achieve financial security.</p><p>Saving is another critical component of financial literacy. Establishing a habit of saving, even in small amounts, can lead to significant financial growth over time. Savings provide a safety net for unexpected expenses and reduce the reliance on credit. Understanding the importance of emergency funds and long-term savings, such as retirement accounts, is crucial for financial stability. Financially literate individuals are more likely to prioritize saving and invest wisely to grow their wealth.</p><p><br></p><p>Investing is a powerful tool for building wealth, but it requires a solid understanding of financial markets and investment strategies. Financial literacy equips individuals with the knowledge to make informed investment decisions, balancing risk and reward. Understanding concepts such as compound interest, diversification, and the impact of inflation on investments is essential for long-term financial success. Educated investors are better positioned to navigate market fluctuations and achieve their financial goals.</p><p><br></p><p>Managing debt is also a key aspect of financial literacy. Excessive debt can lead to financial stress and instability, affecting both personal and economic well-being. Financially literate individuals understand the implications of different types of debt, such as credit cards, student loans, and mortgages. They are more likely to use credit responsibly, avoid high-interest debt, and develop strategies to pay off existing debts efficiently.</p><p>Moreover, financial literacy contributes to broader economic stability. When individuals are financially literate, they are more likely to make sound financial decisions that promote economic growth and stability. A financially educated population can drive consumer</p>",
+      createdAt: "June 27,2024",
+      title: "The Role of Financial Literacy in Economic Stability",
+      author: "jhondoe",
+    },
+  },
+];
