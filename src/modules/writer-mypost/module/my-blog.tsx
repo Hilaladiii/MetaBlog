@@ -3,7 +3,6 @@ import { getMyPosts } from "@/services/blog";
 import { getServerSession } from "next-auth";
 import CardBlog from "@/common/components/fragments/CardBlog";
 import { BlogType } from "@/common/types/blog";
-import CardBlogSkeleton from "@/common/components/fragments/CardBlogSkeleton";
 
 export default async function MyPosts() {
   const session = await getServerSession(authOption);
