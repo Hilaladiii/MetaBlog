@@ -1,10 +1,12 @@
 import { getDataLimit } from "@/common/db/blog";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const params = await req.nextUrl.searchParams;
+  const limit = params.get("limit") || 0;
   const res = await getDataLimit({
     collectionName: "posts",
-    limitValue: 5,
+    limitValue: limit as number,
     orderByField: "views",
   });
   return NextResponse.json(res, { status: res.status });
