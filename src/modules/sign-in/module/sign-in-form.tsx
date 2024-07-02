@@ -6,8 +6,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useMessage } from "@/common/hooks/useMessage";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const schema = z.object({
@@ -25,7 +24,7 @@ export default function SignInForm() {
     formState: { errors, isSubmitting },
   } = useForm<SignInType>({ resolver: zodResolver(schema) });
 
-  const { message, updateMessage } = useMessage();
+  const [message, setMessage] = useState<string>("");
   const { data: session, status } = useSession();
 
   const onSubmit = async (data: SignInType) => {
@@ -38,11 +37,11 @@ export default function SignInForm() {
       });
 
       if (res?.status === 401) {
-        updateMessage("Email or password incorrect");
+        setMessage("Email or password incorrect");
       } else if (res?.ok) {
       }
     } catch (error) {
-      updateMessage("An error occurred during sign in");
+      setMessage("An error occurred during sign in");
     }
   };
 

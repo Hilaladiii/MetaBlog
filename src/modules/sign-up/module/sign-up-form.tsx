@@ -4,11 +4,11 @@ import InputForm from "@/common/components/fragments/InputForm";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { useMessage } from "@/common/hooks/useMessage";
 import { userSchema } from "@/common/types/user";
 import { UserType } from "@/common/types/user";
 import { signUp } from "@/services/user";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function SignUpForm() {
   const router = useRouter();
@@ -18,20 +18,20 @@ export default function SignUpForm() {
     formState: { errors, isSubmitting },
   } = useForm<UserType>({ resolver: zodResolver(userSchema) });
 
-  const { message, updateMessage } = useMessage();
+  const [message, setMessage] = useState<string>("");
 
   const onSubmit = async (data: UserType) => {
     try {
       const res = await signUp(data);
 
       if (res.status == 201) {
-        updateMessage(res.message);
+        setMessage(res.message);
         router.push("/auth/sign-in");
       } else {
-        updateMessage(res.message || "Sign up failed");
+        setMessage(res.message || "Sign up failed");
       }
     } catch (error) {
-      updateMessage(
+      setMessage(
         (error as Error).message || "An error occurred during sign up",
       );
     }
