@@ -1,13 +1,14 @@
 import React from "react";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Image from "next/image";
+import Logo from "../elements/Logo";
 
 const plus_jakarta_sans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export default function Footer() {
   return (
     <footer
-      className={`mt-36 bg-secondary100 py-8 ${plus_jakarta_sans.className}`}
+      className={`dark:bg-dark1 dark:text-light mt-36 bg-secondary100 py-8 ${plus_jakarta_sans.className}`}
     >
       <div className="mx-auto flex max-w-[68em] flex-wrap justify-between">
         <div className="px-4 md:w-1/4">
@@ -93,13 +94,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-8 flex max-w-[68em] flex-wrap items-center justify-between border-t border-gray-300 pt-4">
-        <Image
-          src="/meta-blog.svg"
-          alt="logo"
-          width={300}
-          height={300}
-          className="h-16 w-32"
-        />
+        <Logo />
         <div className="flex space-x-4">
           <a href="#" className="text-gray-600">
             Terms of Use

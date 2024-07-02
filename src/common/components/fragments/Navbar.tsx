@@ -2,23 +2,24 @@
 import Link from "next/link";
 import Input from "../elements/Input";
 import ToggleDarkMode from "../elements/ToggleDarkMode";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/common/lib/utils";
+import Button from "../elements/Button";
+import { signOut } from "next-auth/react";
+import { LuUser } from "react-icons/lu";
+import Logo from "../elements/Logo";
 
-export default function Navbar() {
+export default function Navbar({
+  initialTheme,
+}: {
+  initialTheme: { theme: "dark" | "light" };
+}) {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 z-50 flex h-28 w-full flex-row items-center justify-evenly bg-white">
-      <Image
-        src="/meta-blog.svg"
-        alt="logo"
-        width={300}
-        height={300}
-        className="h-16 w-32"
-      />
-      <div className="space-x-10 text-charcoal">
+    <nav className="dark:bg-dark2 dark:text-light fixed top-0 z-50 flex h-28 w-full flex-row items-center justify-around bg-white">
+      <Logo />
+      <div className="dark:text-light space-x-10 text-charcoal">
         <Link
           href={"/"}
           className={cn("", {
@@ -32,42 +33,30 @@ export default function Navbar() {
           href={"/blog"}
           className={cn("", {
             "border-b-4 border-b-sky pb-1 transition-all duration-100":
-              pathname == "/blog",
+              pathname.includes("/blog"),
           })}
         >
           Blog
         </Link>
-        <Link
-          href={"/"}
-          className={cn("", {
-            "border-b-4 border-b-sky pb-1 transition-all duration-100":
-              pathname == "/single-post",
-          })}
-        >
-          Single Post
-        </Link>
-        <Link
-          href={"/"}
-          className={cn("", {
-            "border-b-4 border-b-sky pb-1 transition-all duration-100":
-              pathname == "/pages",
-          })}
-        >
-          Pages
-        </Link>
-        <Link
-          href={"/"}
-          className={cn("", {
-            "border-b-4 border-b-sky pb-1 transition-all duration-100":
-              pathname == "/contact",
-          })}
-        >
-          Contact
-        </Link>
       </div>
       <div className="flex flex-row items-center gap-5">
-        <Input type="text" placeholder="Search" />
-        <ToggleDarkMode />
+        <Input
+          variant="secondary"
+          type="text"
+          placeholder="Search"
+          name="search"
+        />
+        <ToggleDarkMode initialValue={initialTheme.theme} />
+        <div className="group relative">
+          <LuUser size={25} />
+          <div className="dark:bg-dark1 dark:text-light absolute hidden space-y-3 rounded bg-white p-2 shadow-md group-hover:flex group-hover:flex-col">
+            <Link href={"/"}>My Profile</Link>
+            <Link href={"/"}>My Favorite</Link>
+            <Button onClick={() => signOut()} variant="black" size="small">
+              SignOut
+            </Button>
+          </div>
+        </div>
       </div>
     </nav>
   );
