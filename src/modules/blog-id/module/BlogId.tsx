@@ -1,7 +1,7 @@
 import Badge from "@/common/components/elements/Badge";
 import Author from "@/common/components/fragments/Author";
 import Image from "next/image";
-import style from "../style/richtext.module.css";
+import "../style/richtext.css";
 import { Source_Serif_4 } from "next/font/google";
 import parse from "html-react-parser";
 import { getPostById } from "@/services/blog";
@@ -18,8 +18,10 @@ export default async function BlogId({ params }: { params: string }) {
   return (
     <div className="mx-auto max-w-[47em]">
       <div>
-        <Badge title="Technology" />
-        <h1 className="mb-5 mt-4 text-3xl font-semibold">{detailBlog.title}</h1>
+        <Badge title={detailBlog.category} />
+        <h1 className="dark:text-light mb-5 mt-4 text-3xl font-semibold">
+          {detailBlog.title}
+        </h1>
         <Author
           date={detailBlog.createdAt || ""}
           name={detailBlog.author}
@@ -37,9 +39,7 @@ export default async function BlogId({ params }: { params: string }) {
         loading="lazy"
         className="mt-8"
       />
-      <div className={`mt-10 ${style.rich_text}`}>
-        {parse(detailBlog.content)}
-      </div>
+      <div className="rich_text mt-10">{parse(detailBlog.content)}</div>
     </div>
   );
 }
