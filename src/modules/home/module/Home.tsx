@@ -1,10 +1,10 @@
-import Button from "@/common/components/elements/Button";
 import TopBlog from "./TopBlog";
 import LatestBlog from "./LatestBlog";
 import TrendingBlog from "./Trending";
+
 export default function Home() {
   return (
-    <div className="w-full">
+    <div className="dark:bg-dark2 w-full">
       <TopBlog />
       <TrendingBlog />
       <LatestBlog />

@@ -7,7 +7,7 @@ export default async function LatestBlog() {
   const blogData = data.data as { id: string; data: BlogType }[];
   return (
     <div className="mt-52 flex flex-col">
-      <h1 className="mb-8 text-xl font-bold">Latest Post</h1>
+      <h1 className="dark:text-light mb-8 text-xl font-bold">Latest Post</h1>
       <div className="mx-auto grid grid-cols-3 gap-5">
         {blogData &&
           blogData.map((blog, index) => (

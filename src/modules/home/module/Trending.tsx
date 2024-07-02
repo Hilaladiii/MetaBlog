@@ -10,7 +10,7 @@ export default async function TrendingBlog() {
   return (
     <div className="mt-32 flex max-w-[68em] flex-col">
       <div className="mb-8 flex flex-row items-start justify-between">
-        <h1 className="text-lg font-bold">Trending Post</h1>
+        <h1 className="dark:text-light text-lg font-bold">Trending Post</h1>
       </div>
       <div className="flex flex-row gap-5">
         {trendingBlog &&
