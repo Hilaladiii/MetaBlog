@@ -3,33 +3,30 @@
 import { useEffect, useState } from "react";
 
 export default function ClientThemeWrapper({
-  initialTheme,
   children,
 }: {
-  initialTheme: string;
   children: React.ReactNode;
 }) {
-  const [theme, setTheme] = useState(initialTheme);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
-    const handleCookieChange = () => {
-      const updatedTheme = document.cookie
-        .split("; ")
-        .find((row) => row.startsWith("theme="))
-        ?.split("=")[1];
-      if (updatedTheme) {
-        setTheme(updatedTheme);
-      }
+    const storedTheme = localStorage.getItem("theme") as
+      | "light"
+      | "dark"
+      | null;
+    if (storedTheme) {
+      setTheme(storedTheme);
+    }
+
+    const handleThemeChange = () => {
+      const updatedTheme = localStorage.getItem("theme") as "light" | "dark";
+      setTheme(updatedTheme);
     };
 
-    const customEventListener = () => {
-      handleCookieChange();
-    };
-
-    window.addEventListener("themeChange", customEventListener);
+    window.addEventListener("themeChange", handleThemeChange);
 
     return () => {
-      window.removeEventListener("themeChange", customEventListener);
+      window.removeEventListener("themeChange", handleThemeChange);
     };
   }, []);
 

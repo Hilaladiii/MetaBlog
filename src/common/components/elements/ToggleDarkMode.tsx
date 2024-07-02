@@ -8,28 +8,25 @@ export default function ToggleDarkMode({
 }: {
   initialValue: Theme;
 }) {
-  const [theme, setTheme] = useState<Theme>(initialValue);
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    const cookieTheme = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("theme="))
-      ?.split("=")[1] as Theme | undefined;
-
-    if (cookieTheme) {
-      setTheme(cookieTheme);
+    const storedTheme = localStorage.getItem("theme") as Theme | null;
+    if (storedTheme) {
+      setTheme(storedTheme);
     } else {
       const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
         .matches
         ? "dark"
         : "light";
       setTheme(preferredTheme);
-      document.cookie = `theme=${preferredTheme};path=/;`;
+      localStorage.setItem("theme", preferredTheme);
     }
   }, []);
 
   useEffect(() => {
-    document.cookie = `theme=${theme};path=/;`;
+    localStorage.setItem("theme", theme);
+    document.documentElement.classList.toggle("dark", theme === "dark");
     window.dispatchEvent(new Event("themeChange"));
   }, [theme]);
 
