@@ -5,14 +5,26 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 interface InputProps extends HtmlHTMLAttributes<HTMLInputElement> {
-  type: "text" | "number" | "email" | "password";
+  type: "text" | "number" | "email" | "password" | "file";
   placeholder: string;
   size?: "default" | "small" | "large" | "full";
   name: string;
+  variant: "primary" | "secondary";
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, size = "default", placeholder, name, ...props }, ref) => {
+  (
+    {
+      className,
+      type,
+      size = "default",
+      placeholder,
+      name,
+      variant = "primary",
+      ...props
+    },
+    ref,
+  ) => {
     return (
       <input
         ref={ref}
@@ -26,6 +38,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             "w-full": size == "full",
             "w-24": size == "small",
             "w-64": size == "large",
+          },
+          {
+            "rounded-md border-[1px] border-charcoal bg-white px-4 py-1 placeholder:text-sm placeholder:text-charcoal":
+              variant == "secondary",
           },
           className,
         )}
