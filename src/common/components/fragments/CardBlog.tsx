@@ -19,7 +19,7 @@ export default function CardBlog({
   href: string;
 }) {
   return (
-    <div className="max-w-sm rounded-md border-2 border-cloud p-3">
+    <div className="dark:bg-dark2 dark:border-dark1 max-w-sm rounded-md border-2 border-cloud p-3">
       <Link href={href}>
         <Image
           src={image}
@@ -30,7 +30,9 @@ export default function CardBlog({
         />
       </Link>
       <Badge title={category} />
-      <h1 className="mb-6 mt-4 h-24 text-2xl font-semibold">{title}</h1>
+      <h1 className="dark:text-light mb-6 mt-4 h-24 text-2xl font-semibold">
+        {title}
+      </h1>
       <Author date={date} name={author} image="" />
     </div>
   );
