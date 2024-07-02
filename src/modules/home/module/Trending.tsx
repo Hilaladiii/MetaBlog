@@ -15,7 +15,7 @@ export default async function TrendingBlog() {
       <div className="flex flex-row gap-5">
         {trendingBlog &&
           trendingBlog.map((blog, index: number) => (
-            <div className="relative max-w-xs">
+            <div className="relative max-w-xs" key={index}>
               <Link href={`/blog/${blog.id}`}>
                 <Image
                   src={blog.data.image}
