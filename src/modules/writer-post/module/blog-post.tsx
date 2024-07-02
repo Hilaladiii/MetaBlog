@@ -106,7 +106,6 @@ export default function BlogPost() {
             </div>
           )}
           <input
-            name="image"
             id="image"
             type="file"
             className="hidden"
@@ -117,7 +116,9 @@ export default function BlogPost() {
             }}
           />
           {errors.image && (
-            <p className="text-xs text-red-500">{errors.image.message}</p>
+            <p className="text-xs text-red-500">
+              {errors.image.message?.toString()}
+            </p>
           )}
         </div>
         <div className="flex items-center gap-5">
