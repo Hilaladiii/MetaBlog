@@ -45,7 +45,7 @@ export default function AdminNavbar() {
           Sign Out
         </Button>
       </div>
-      <div className="fixed z-50 mx-auto flex w-full flex-col items-center justify-evenly bg-white pb-5 shadow-md md:hidden">
+      <div className="fixed z-50 mx-auto flex w-full flex-col items-center justify-evenly bg-white py-5 shadow-md md:hidden">
         <Logo />
         <div className="mt-5 flex w-full flex-row items-center justify-around">
           <div className="space-x-4">
