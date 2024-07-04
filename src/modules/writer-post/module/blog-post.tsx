@@ -49,7 +49,7 @@ export default function BlogPost() {
   };
 
   return (
-    <div className="mx-auto mt-32 max-w-[70em] px-20">
+    <div className="mx-auto mt-32 max-w-[70em] px-4 md:px-20">
       <span className="mx-auto text-xl font-semibold">{message}</span>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <InputForm

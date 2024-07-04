@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const schema = z.object({
   email: z.string().email("Invalid email address"),
-  password: z.string(),
+  password: z.string().min(8, "min length password is 8 characters"),
 });
 
 type SignInType = z.infer<typeof schema>;

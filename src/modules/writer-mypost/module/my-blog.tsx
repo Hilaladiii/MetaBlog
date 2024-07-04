@@ -10,9 +10,9 @@ export default async function MyPosts() {
   const data = await getMyPosts(user);
   const blogData = data.data;
   return (
-    <div className="mx-auto my-20 flex w-full max-w-[70em] flex-col">
+    <div className="mx-auto my-32 flex w-full flex-col md:my-20 md:max-w-[70em]">
       <h1 className="mx-auto mb-12 text-3xl font-semibold">My-Posts</h1>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="mx-auto grid grid-cols-1 gap-5 md:grid-cols-3">
         {blogData &&
           blogData.map(
             (blog: { id: string; data: BlogType }, index: number) => (
