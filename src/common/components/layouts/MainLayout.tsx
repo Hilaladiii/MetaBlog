@@ -11,9 +11,9 @@ export default function MainLayout({
   return (
     <div className="dark:bg-dark2">
       <Navbar initialTheme={theme} />
-      <div className="dark:bg-dark2 h-32 w-full" />
-      <div>
-        <div className="mx-auto max-w-[68em]">{children}</div>
+      <div className="h-32 w-full dark:bg-dark2" />
+      <div className="mx-auto w-full px-5 md:max-w-[68em] md:px-0">
+        {children}
       </div>
       <Footer />
     </div>
